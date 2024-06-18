@@ -47,3 +47,27 @@ def test_analyze_multi_textual_context():
     assert "User is asking for help." in contexts[0]
     assert "Context analysis of input: Tell me more about your services." in contexts[1]
     assert "General input." in contexts[1]
+
+def test_analyze_context_multilingual():
+    agent = AdaptivePromptAgent()
+    user_input_en = "I need help with my account."
+    user_input_es = "Necesito ayuda con mi cuenta."
+    user_input_fr = "J'ai besoin d'aide avec mon compte."
+    user_input_de = "Ich brauche Hilfe mit meinem Konto."
+
+    context_en = agent.analyze_context(user_input_en)
+    context_es = agent.analyze_context(user_input_es)
+    context_fr = agent.analyze_context(user_input_fr)
+    context_de = agent.analyze_context(user_input_de)
+
+    assert "Context analysis of input: I need help with my account." in context_en
+    assert "User is asking for help." in context_en
+
+    assert "Context analysis of input: Necesito ayuda con mi cuenta." in context_es
+    assert "User is asking for help." in context_es
+
+    assert "Context analysis of input: J'ai besoin d'aide avec mon compte." in context_fr
+    assert "User is asking for help." in context_fr
+
+    assert "Context analysis of input: Ich brauche Hilfe mit meinem Konto." in context_de
+    assert "User is asking for help." in context_de

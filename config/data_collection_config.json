@@ -1,0 +1,22 @@
+{
+    "sources": [
+        {
+            "name": "example_source",
+            "type": "web",
+            "url": "https://example.com",
+            "selectors": {
+                "title": "h1",
+                "content": "div.content"
+            }
+        },
+        {
+            "name": "another_source",
+            "type": "web",
+            "url": "https://anotherexample.com",
+            "selectors": {
+                "headline": "h2.headline",
+                "summary": "p.summary"
+            }
+        }
+    ]
+}
