@@ -4,7 +4,7 @@ This is the prompt agent, part of VishwamAI.
 
 ## Introduction
 
-The prompt agent is designed to auto-generate prompts and self-update. It leverages advanced NLP techniques to analyze user input and generate contextually relevant prompts. The agent is built using Python and includes mechanisms for adaptive prompting, self-updating, multi-textual prompt engineering, multilingual support, math-solving capabilities, and auto data collection.
+The prompt agent is designed to auto-generate prompts and self-update. It leverages advanced NLP techniques to analyze user input and generate contextually relevant prompts. The agent is built using Python and includes mechanisms for adaptive prompting, self-updating, multi-textual prompt engineering, multilingual support, math-solving capabilities (including algebra, calculus, and statistics), and auto data collection.
 
 ## Project Structure
 
@@ -74,7 +74,7 @@ To run the problem-solving agent, execute the following command:
 python3 scripts/problem_solving_agent.py
 ```
 
-The agent will prompt you to enter a math or coding problem. Type your problem and press Enter. To exit the agent, type `exit`.
+The agent will prompt you to enter a math or coding problem. Type your problem and press Enter. The agent can solve algebra, calculus, and statistics problems using `sympy`. To exit the agent, type `exit`.
 
 ### Auto Data Collection
 
@@ -103,7 +103,7 @@ The multilingual support is implemented in the `adaptive_prompting.py` script. T
 
 ### Math and Coding Problem Solving
 
-The math and coding problem-solving capabilities are implemented in the `problem_solving_agent.py` script. The `ProblemSolvingAgent` class includes methods for solving math problems using `sympy` and a placeholder for coding problems.
+The math and coding problem-solving capabilities are implemented in the `problem_solving_agent.py` script. The `ProblemSolvingAgent` class includes methods for solving math problems using `sympy`, including algebra, calculus, and statistics problems. The coding problem-solving functionality is currently under development.
 
 ### Auto Data Collection
 
