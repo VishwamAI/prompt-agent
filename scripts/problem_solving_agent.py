@@ -1,6 +1,5 @@
 import sympy as sp
 import re
-import requests
 import time
 
 class ProblemSolvingAgent:
@@ -26,31 +25,8 @@ class ProblemSolvingAgent:
         else:
             return self.solve_coding_problem(user_input)
 
-    def fetch_updates(self, url):
-        try:
-            response = requests.get(url)
-            if response.status_code == 200:
-                # Placeholder for processing the fetched updates
-                return "Updates fetched successfully."
-            else:
-                return f"Failed to fetch updates. Status code: {response.status_code}"
-        except Exception as e:
-            return f"Error fetching updates: {str(e)}"
-
-    def auto_update(self, url, interval=3600):
-        while True:
-            print(self.fetch_updates(url))
-            time.sleep(interval)
-
 if __name__ == "__main__":
     agent = ProblemSolvingAgent()
-    update_url = "http://example.com/updates"  # Placeholder URL for updates
-    update_interval = 3600  # Check for updates every hour
-
-    # Start the auto-update process in a separate thread
-    import threading
-    update_thread = threading.Thread(target=agent.auto_update, args=(update_url, update_interval))
-    update_thread.start()
 
     while True:
         user_input = input("Enter a math or coding problem (or 'exit' to quit): ")
