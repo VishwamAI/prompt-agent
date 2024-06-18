@@ -24,20 +24,16 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python -m venv venv
-        source venv/bin/activate
         pip install --upgrade pip
         pip install -r requirements.txt
+        pip install pytest
 
     - name: Run tests
       run: |
-        source venv/bin/activate
-        # Add your test command here, e.g., pytest
-        echo "Running tests..."
+        pytest
 
     - name: Deploy
       if: github.ref == 'refs/heads/main' && success()
       run: |
-        source venv/bin/activate
         # Add your deployment command here
         echo "Deploying application..."
