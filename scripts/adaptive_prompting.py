@@ -14,6 +14,19 @@ class AdaptivePromptAgent:
         self.prompt_history.append(prompt)
         return prompt
 
+    def analyze_context(self, user_input):
+        # Analyze the context of the user input
+        # Implementing context analysis logic
+        context = f"Context analysis of input: {user_input}"
+        # Example: Simple keyword-based context analysis
+        if "help" in user_input.lower():
+            context += " - User is asking for help."
+        elif "info" in user_input.lower():
+            context += " - User is asking for information."
+        else:
+            context += " - General input."
+        return context
+
     def update_model(self):
         # Self-updating mechanism
         print("Checking for updates...")
@@ -32,6 +45,8 @@ def main():
             print("Exiting Prompt Agent.")
             break
         else:
+            context = agent.analyze_context(user_input)
+            print(context)
             prompt = agent.generate_prompt(user_input)
             print(prompt)
             agent.update_model()
