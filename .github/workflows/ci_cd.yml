@@ -1,0 +1,40 @@
+name: CI/CD Workflow
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest
+        python -m spacy download en_core_web_sm
+
+    - name: Run tests
+      run: |
+        pytest
+
+    - name: Deploy
+      if: github.ref == 'refs/heads/main' && success()
+      run: |
+        # Add your deployment command here
+        echo "Deploying application..."
