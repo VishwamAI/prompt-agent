@@ -2,3 +2,4 @@ numpy
 requests
 nltk
 spacy
+language_tool_python
