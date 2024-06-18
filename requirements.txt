@@ -4,3 +4,5 @@ nltk
 spacy
 language_tool_python
 langdetect
+beautifulsoup4
+apscheduler
