@@ -14,6 +14,30 @@ class ProblemSolvingAgent:
         except Exception as e:
             return f"Error solving math problem: {str(e)}"
 
+    def solve_algebra_problem(self, problem):
+        try:
+            # Use sympy to solve algebra problems
+            solution = sp.solve(problem)
+            return f"The solution to the algebra problem '{problem}' is: {solution}"
+        except Exception as e:
+            return f"Error solving algebra problem: {str(e)}"
+
+    def solve_calculus_problem(self, problem):
+        try:
+            # Use sympy to solve calculus problems
+            solution = sp.integrate(problem)
+            return f"The solution to the calculus problem '{problem}' is: {solution}"
+        except Exception as e:
+            return f"Error solving calculus problem: {str(e)}"
+
+    def solve_statistics_problem(self, problem):
+        try:
+            # Placeholder for solving statistics problems
+            # Implement logic for solving statistics problems
+            return "Statistics problem-solving functionality is under development."
+        except Exception as e:
+            return f"Error solving statistics problem: {str(e)}"
+
     def solve_coding_problem(self, problem):
         # Placeholder for coding problem-solving logic
         return "Coding problem-solving functionality is under development."
@@ -22,8 +46,10 @@ class ProblemSolvingAgent:
         # Determine if the input is a math problem or a coding problem
         if re.search(r'[+\-*/^=]', user_input):
             return self.solve_math_problem(user_input)
-        else:
+        elif re.search(r'[a-zA-Z]', user_input):
             return self.solve_coding_problem(user_input)
+        else:
+            return "Unable to determine the type of problem. Please provide a valid math or coding problem."
 
 if __name__ == "__main__":
     agent = ProblemSolvingAgent()
