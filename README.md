@@ -4,7 +4,7 @@ This is the prompt agent, part of VishwamAI.
 
 ## Introduction
 
-The prompt agent is designed to auto-generate prompts and self-update. It leverages advanced NLP techniques to analyze user input and generate contextually relevant prompts. The agent is built using Python and includes mechanisms for adaptive prompting, self-updating, and multi-textual prompt engineering.
+The prompt agent is designed to auto-generate prompts and self-update. It leverages advanced NLP techniques to analyze user input and generate contextually relevant prompts. The agent is built using Python and includes mechanisms for adaptive prompting, self-updating, multi-textual prompt engineering, multilingual support, math-solving capabilities, and auto data collection.
 
 ## Project Structure
 
@@ -50,9 +50,12 @@ VishwamAI/
    nltk.download('stopwords')
    ```
 
-5. Install the SpaCy language model:
+5. Install the SpaCy language models:
    ```bash
    python -m spacy download en_core_web_sm
+   python -m spacy download es_core_news_sm
+   python -m spacy download fr_core_news_sm
+   python -m spacy download de_core_news_sm
    ```
 
 ## Usage
@@ -63,6 +66,24 @@ python3 scripts/prompt_agent.py
 ```
 
 The agent will prompt you to enter your input. Type your prompt and press Enter. To exit the agent, type `exit`.
+
+### Math and Coding Problem Solving
+
+To run the problem-solving agent, execute the following command:
+```bash
+python3 scripts/problem_solving_agent.py
+```
+
+The agent will prompt you to enter a math or coding problem. Type your problem and press Enter. To exit the agent, type `exit`.
+
+### Auto Data Collection
+
+To run the data collection agent, execute the following command:
+```bash
+python3 scripts/data_collection_agent.py
+```
+
+The agent will collect data from configured web sources and log its activity.
 
 ## Development
 
@@ -75,6 +96,18 @@ The adaptive prompting logic is implemented in the `adaptive_prompting.py` scrip
 The multi-textual prompt engineering capabilities are implemented in the `adaptive_prompting.py` script. The `AdaptivePromptAgent` class includes methods for generating prompts and analyzing context for multiple textual inputs:
 - `generate_multi_textual_prompt(user_inputs)`: Generates prompts for multiple textual inputs.
 - `analyze_multi_textual_context(user_inputs)`: Analyzes context for multiple textual inputs.
+
+### Multilingual Support
+
+The multilingual support is implemented in the `adaptive_prompting.py` script. The `AdaptivePromptAgent` class includes methods for analyzing context in multiple languages, including English, Spanish, French, and German.
+
+### Math and Coding Problem Solving
+
+The math and coding problem-solving capabilities are implemented in the `problem_solving_agent.py` script. The `ProblemSolvingAgent` class includes methods for solving math problems using `sympy` and a placeholder for coding problems.
+
+### Auto Data Collection
+
+The auto data collection capabilities are implemented in the `data_collection_agent.py` script. The agent collects data from configured web sources and logs its activity.
 
 ### Self-Update Mechanism
 
@@ -101,7 +134,8 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 This project uses the following libraries and tools:
 - [NumPy](https://numpy.org/)
-- [Requests](https://docs.python-requests.org/en/latest/)
 - [NLTK](https://www.nltk.org/)
 - [SpaCy](https://spacy.io/)
 - [language_tool_python](https://github.com/jxmorris12/language_tool_python)
+- [SymPy](https://www.sympy.org/)
+- [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
