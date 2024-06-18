@@ -1,6 +1,7 @@
 import random
 import spacy
 import nltk
+import language_tool_python
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
@@ -10,6 +11,9 @@ nltk.download('stopwords')
 
 # Load spaCy model
 nlp = spacy.load('en_core_web_sm')
+
+# Initialize LanguageTool
+tool = language_tool_python.LanguageTool('en-US')
 
 class AdaptivePromptAgent:
     def __init__(self):
@@ -52,6 +56,13 @@ class AdaptivePromptAgent:
         # Example: Part-of-speech tagging using spaCy
         pos_tags = [(token.text, token.pos_) for token in doc]
         context += f" - Part-of-speech tags: {pos_tags}"
+
+        # Grammar checking using LanguageTool
+        matches = tool.check(user_input)
+        if matches:
+            context += " - Grammar issues detected:"
+            for match in matches:
+                context += f" {match.ruleId}: {match.message} (suggestion: {match.replacements})"
 
         return context
 
