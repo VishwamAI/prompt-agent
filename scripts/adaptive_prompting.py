@@ -73,7 +73,7 @@ class AdaptivePromptAgent:
             'en': 'help',
             'es': 'ayuda',
             'fr': 'aide',
-            'de': 'Hilfe'
+            'de': 'hilfe'
         }
 
         if help_keywords[lang] in user_input.lower():
