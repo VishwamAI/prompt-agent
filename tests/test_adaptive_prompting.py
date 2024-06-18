@@ -23,7 +23,7 @@ def test_analyze_context():
     if "Named entities recognized:" in context:
         assert "Named entities recognized:" in context
     assert "Part-of-speech tags:" in context
-    assert "Grammar issues detected:" in context or "No grammar issues detected." not in context
+    assert "Grammar issues detected:" in context or "No grammar issues detected." in context
 
 def test_update_model():
     agent = AdaptivePromptAgent()

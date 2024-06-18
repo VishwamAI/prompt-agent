@@ -63,6 +63,8 @@ class AdaptivePromptAgent:
             context += " - Grammar issues detected:"
             for match in matches:
                 context += f" {match.ruleId}: {match.message} (suggestion: {match.replacements})"
+        else:
+            context += " - No grammar issues detected."
 
         return context
 
@@ -74,6 +76,8 @@ class AdaptivePromptAgent:
         os.system("git fetch origin main")
         os.system("git merge --ff-only FETCH_HEAD")
         os.system("pip install -r requirements.txt")
+        # Check for updates to language_tool_python
+        os.system("pip install --upgrade language_tool_python")
         # Reload the model with the new code
         print("Model updated successfully.")
 
