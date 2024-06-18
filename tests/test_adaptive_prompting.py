@@ -1,5 +1,6 @@
 import pytest
 from scripts.adaptive_prompting import AdaptivePromptAgent
+from scripts.problem_solving_agent import ProblemSolvingAgent
 
 def test_adaptive_prompt_agent_initialization():
     agent = AdaptivePromptAgent()
@@ -71,3 +72,15 @@ def test_analyze_context_multilingual():
 
     assert "Context analysis of input: Ich brauche Hilfe mit meinem Konto." in context_de
     assert "User is asking for help." in context_de
+
+def test_solve_algebra_problem():
+    agent = ProblemSolvingAgent()
+    problem = "x**2 - 4"
+    solution = agent.solve_algebra_problem(problem)
+    assert "The solution to the algebra problem 'x**2 - 4' is:" in solution
+
+def test_solve_calculus_problem():
+    agent = ProblemSolvingAgent()
+    problem = "x**2"
+    solution = agent.solve_calculus_problem(problem)
+    assert "The solution to the calculus problem 'x**2' is:" in solution
