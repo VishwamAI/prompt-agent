@@ -69,7 +69,14 @@ class AdaptivePromptAgent:
         filtered_tokens = [word for word in tokens if word.lower() not in stop_words]
 
         # Simple keyword-based context analysis
-        if "help" in user_input.lower():
+        help_keywords = {
+            'en': 'help',
+            'es': 'ayuda',
+            'fr': 'aide',
+            'de': 'Hilfe'
+        }
+
+        if help_keywords[lang] in user_input.lower():
             context += " - User is asking for help."
         elif "info" in user_input.lower():
             context += " - User is asking for information."
