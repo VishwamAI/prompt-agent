@@ -4,7 +4,7 @@ This is the prompt agent, part of VishwamAI.
 
 ## Introduction
 
-The prompt agent is designed to auto-generate prompts and self-update. It leverages advanced NLP techniques to analyze user input and generate contextually relevant prompts. The agent is built using Python and includes mechanisms for adaptive prompting and self-updating.
+The prompt agent is designed to auto-generate prompts and self-update. It leverages advanced NLP techniques to analyze user input and generate contextually relevant prompts. The agent is built using Python and includes mechanisms for adaptive prompting, self-updating, and multi-textual prompt engineering.
 
 ## Project Structure
 
@@ -70,6 +70,12 @@ The agent will prompt you to enter your input. Type your prompt and press Enter.
 
 The adaptive prompting logic is implemented in the `adaptive_prompting.py` script. The `AdaptivePromptAgent` class includes methods for generating prompts, analyzing context, and updating the model.
 
+### Multi-Textual Prompt Engineering
+
+The multi-textual prompt engineering capabilities are implemented in the `adaptive_prompting.py` script. The `AdaptivePromptAgent` class includes methods for generating prompts and analyzing context for multiple textual inputs:
+- `generate_multi_textual_prompt(user_inputs)`: Generates prompts for multiple textual inputs.
+- `analyze_multi_textual_context(user_inputs)`: Analyzes context for multiple textual inputs.
+
 ### Self-Update Mechanism
 
 The self-update mechanism is implemented in the `update_model` method of the `AdaptivePromptAgent` class. It uses system calls to perform `git pull` and `pip install -r requirements.txt` commands to update the code and dependencies.
@@ -98,3 +104,4 @@ This project uses the following libraries and tools:
 - [Requests](https://docs.python-requests.org/en/latest/)
 - [NLTK](https://www.nltk.org/)
 - [SpaCy](https://spacy.io/)
+- [language_tool_python](https://github.com/jxmorris12/language_tool_python)

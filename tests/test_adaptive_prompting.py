@@ -36,7 +36,7 @@ def test_generate_multi_textual_prompt():
     prompts = agent.generate_multi_textual_prompt(user_inputs)
     assert len(prompts) == 2
     assert prompts[0] == "Generated prompt based on input: Hello, how are you?"
-    assert prompts[1] == "Generated prompt based on input: What is the weather like today?"
+    assert prompts[1] == "Based on your previous input 'Generated prompt based on input: Hello, how are you?', here is a new prompt: What is the weather like today?"
 
 def test_analyze_multi_textual_context():
     agent = AdaptivePromptAgent()
@@ -46,4 +46,4 @@ def test_analyze_multi_textual_context():
     assert "Context analysis of input: I need help with my account." in contexts[0]
     assert "User is asking for help." in contexts[0]
     assert "Context analysis of input: Tell me more about your services." in contexts[1]
-    assert "User is asking for information." in contexts[1]
+    assert "General input." in contexts[1]
