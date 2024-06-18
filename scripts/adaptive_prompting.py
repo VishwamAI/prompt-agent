@@ -30,12 +30,12 @@ class AdaptivePromptAgent:
     def update_model(self):
         # Self-updating mechanism
         print("Checking for updates...")
-        # Placeholder for actual update logic
-        # This could involve checking a remote repository for updates and applying them
-        # Example: Pull the latest code from the repository and apply updates
-        # os.system("git pull origin main")
-        # os.system("pip install -r requirements.txt")
+        # Implementing the actual update logic
+        import os
+        os.system("git pull origin main")
+        os.system("pip install -r requirements.txt")
         # Reload the model with the new code
+        print("Model updated successfully.")
 
 def main():
     agent = AdaptivePromptAgent()
