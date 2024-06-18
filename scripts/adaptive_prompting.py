@@ -4,16 +4,23 @@ import nltk
 import language_tool_python
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+from langdetect import detect
 
 # Download NLTK data
 nltk.download('punkt')
 nltk.download('stopwords')
 
-# Load spaCy model
-nlp = spacy.load('en_core_web_sm')
+# Load spaCy models
+nlp_en = spacy.load('en_core_web_sm')
+nlp_es = spacy.load('es_core_news_sm')
+nlp_fr = spacy.load('fr_core_news_sm')
+nlp_de = spacy.load('de_core_news_sm')
 
 # Initialize LanguageTool
-tool = language_tool_python.LanguageTool('en-US')
+tool_en = language_tool_python.LanguageTool('en-US')
+tool_es = language_tool_python.LanguageTool('es')
+tool_fr = language_tool_python.LanguageTool('fr')
+tool_de = language_tool_python.LanguageTool('de')
 
 class AdaptivePromptAgent:
     def __init__(self):
@@ -30,17 +37,38 @@ class AdaptivePromptAgent:
         return prompt
 
     def analyze_context(self, user_input):
+        # Detect language of the user input
+        lang = detect(user_input)
+
+        # Select appropriate spaCy model and LanguageTool based on detected language
+        if lang == 'en':
+            nlp = nlp_en
+            tool = tool_en
+            stop_words = set(stopwords.words('english'))
+        elif lang == 'es':
+            nlp = nlp_es
+            tool = tool_es
+            stop_words = set(stopwords.words('spanish'))
+        elif lang == 'fr':
+            nlp = nlp_fr
+            tool = tool_fr
+            stop_words = set(stopwords.words('french'))
+        elif lang == 'de':
+            nlp = nlp_de
+            tool = tool_de
+            stop_words = set(stopwords.words('german'))
+        else:
+            return f"Unsupported language detected: {lang}"
+
         # Analyze the context of the user input
-        # Implementing context analysis logic
         context = f"Context analysis of input: {user_input}"
 
-        # Example: Enhanced context analysis using spaCy and NLTK
+        # Enhanced context analysis using spaCy and NLTK
         doc = nlp(user_input)
         tokens = word_tokenize(user_input)
-        stop_words = set(stopwords.words('english'))
         filtered_tokens = [word for word in tokens if word.lower() not in stop_words]
 
-        # Example: Simple keyword-based context analysis
+        # Simple keyword-based context analysis
         if "help" in user_input.lower():
             context += " - User is asking for help."
         elif "info" in user_input.lower():
@@ -48,12 +76,12 @@ class AdaptivePromptAgent:
         else:
             context += " - General input."
 
-        # Example: Named entity recognition using spaCy
+        # Named entity recognition using spaCy
         entities = [(ent.text, ent.label_) for ent in doc.ents]
         if entities:
             context += f" - Named entities recognized: {entities}"
 
-        # Example: Part-of-speech tagging using spaCy
+        # Part-of-speech tagging using spaCy
         pos_tags = [(token.text, token.pos_) for token in doc]
         context += f" - Part-of-speech tags: {pos_tags}"
 
