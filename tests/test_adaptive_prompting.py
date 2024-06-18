@@ -84,3 +84,9 @@ def test_solve_calculus_problem():
     problem = "x**2"
     solution = agent.solve_calculus_problem(problem)
     assert "The solution to the calculus problem 'x**2' is:" in solution
+
+def test_solve_statistics_problem():
+    agent = ProblemSolvingAgent()
+    problem = "Normal('X', 0, 1)"
+    solution = agent.solve_statistics_problem(problem)
+    assert "The solution to the statistics problem 'Normal('X', 0, 1)' is:" in solution
