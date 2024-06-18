@@ -113,6 +113,22 @@ The auto data collection capabilities are implemented in the `data_collection_ag
 
 The self-update mechanism is implemented in the `update_model` method of the `AdaptivePromptAgent` class. It uses system calls to perform `git pull` and `pip install -r requirements.txt` commands to update the code and dependencies.
 
+### Running Tests Locally
+
+To run the tests locally and replicate the CI/CD environment, use the `run_tests.sh` script. This script sets up a virtual environment, installs the required dependencies, and runs the tests using `pytest`.
+
+1. Ensure the `run_tests.sh` script has executable permissions:
+   ```bash
+   chmod +x run_tests.sh
+   ```
+
+2. Execute the `run_tests.sh` script:
+   ```bash
+   ./run_tests.sh
+   ```
+
+The script will set up the environment, install dependencies, and run the tests. If any test fails, the script will exit immediately with an error message.
+
 ### CI/CD Workflow
 
 The CI/CD workflow is defined in the `.github/workflows/ci_cd.yml` file. It includes steps for setting up Python, installing dependencies, running tests, and deploying the application.
