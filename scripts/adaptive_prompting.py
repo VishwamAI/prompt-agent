@@ -81,10 +81,26 @@ class AdaptivePromptAgent:
         # Reload the model with the new code
         print("Model updated successfully.")
 
+    def generate_multi_textual_prompt(self, user_inputs):
+        # Generate prompts for multiple textual inputs
+        prompts = []
+        for user_input in user_inputs:
+            prompt = self.generate_prompt(user_input)
+            prompts.append(prompt)
+        return prompts
+
+    def analyze_multi_textual_context(self, user_inputs):
+        # Analyze context for multiple textual inputs
+        contexts = []
+        for user_input in user_inputs:
+            context = self.analyze_context(user_input)
+            contexts.append(context)
+        return contexts
+
 def main():
     agent = AdaptivePromptAgent()
     while True:
-        user_input = input("Enter your prompt: ")
+        user_input = input("Enter your prompt (or 'exit' to quit): ")
         if user_input.lower() == 'exit':
             print("Exiting Prompt Agent.")
             break

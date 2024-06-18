@@ -29,3 +29,21 @@ def test_update_model():
     agent = AdaptivePromptAgent()
     # This test will only check if the method runs without errors
     agent.update_model()
+
+def test_generate_multi_textual_prompt():
+    agent = AdaptivePromptAgent()
+    user_inputs = ["Hello, how are you?", "What is the weather like today?"]
+    prompts = agent.generate_multi_textual_prompt(user_inputs)
+    assert len(prompts) == 2
+    assert prompts[0] == "Generated prompt based on input: Hello, how are you?"
+    assert prompts[1] == "Generated prompt based on input: What is the weather like today?"
+
+def test_analyze_multi_textual_context():
+    agent = AdaptivePromptAgent()
+    user_inputs = ["I need help with my account.", "Tell me more about your services."]
+    contexts = agent.analyze_multi_textual_context(user_inputs)
+    assert len(contexts) == 2
+    assert "Context analysis of input: I need help with my account." in contexts[0]
+    assert "User is asking for help." in contexts[0]
+    assert "Context analysis of input: Tell me more about your services." in contexts[1]
+    assert "User is asking for information." in contexts[1]
