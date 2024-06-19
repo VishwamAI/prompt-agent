@@ -6,7 +6,7 @@ The prompt agent is designed to auto-generate prompts and self-update. It levera
 
 ## Introduction
 
-The prompt agent is part of VishwamAI and aims to provide a comprehensive solution for generating and managing prompts. It includes advanced features such as adaptive prompting, multi-textual prompt engineering, multilingual support, math and coding problem-solving, auto data collection, and a self-update mechanism.
+The prompt agent is part of VishwamAI and aims to provide a comprehensive solution for generating and managing prompts. It includes advanced features such as adaptive prompting, multi-textual prompt engineering, multilingual support, advanced math and coding problem-solving (akin to Jarvis), auto data collection without relying on APIs, and a self-update mechanism with self-learning capabilities for grammatical improvements and multilingual support.
 
 ## System Overview
 
@@ -168,7 +168,7 @@ The CI/CD workflow is defined in the `.github/workflows/ci_cd.yml` file. It incl
 
 ## Conclusion
 
-The prompt agent provides a robust solution for generating and managing prompts, with advanced features such as adaptive prompting, multi-textual prompt engineering, multilingual support, math and coding problem-solving, auto data collection, and a self-update mechanism. It is designed to be easily extensible and adaptable to various use cases.
+The prompt agent provides a robust solution for generating and managing prompts, with advanced features such as adaptive prompting, multi-textual prompt engineering, multilingual support, advanced math and coding problem-solving (akin to Jarvis), auto data collection without relying on APIs, and a self-update mechanism with self-learning capabilities. It is designed to be easily extensible and adaptable to various use cases.
 
 ## References
 
