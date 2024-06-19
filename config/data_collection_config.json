@@ -6,16 +6,16 @@
             "url": "https://example.com",
             "selectors": {
                 "title": "h1",
-                "content": "div.content"
+                "content": "h1 + p"
             }
         },
         {
             "name": "another_source",
             "type": "web",
-            "url": "https://anotherexample.com",
+            "url": "https://example.com",
             "selectors": {
-                "headline": "h2.headline",
-                "summary": "p.summary"
+                "title": "h1",
+                "content": "h1 + p"
             }
         }
     ]

@@ -1,12 +1,16 @@
 # prompt-agent
 
-This is the prompt agent, part of VishwamAI.
+## Abstract
+
+The prompt agent is designed to auto-generate prompts and self-update. It leverages advanced NLP techniques to analyze user input and generate contextually relevant prompts. The agent is built using Python and includes mechanisms for adaptive prompting, self-updating, multi-textual prompt engineering, multilingual support, math-solving capabilities (including algebra, calculus, and statistics), and auto data collection.
 
 ## Introduction
 
-The prompt agent is designed to auto-generate prompts and self-update. It leverages advanced NLP techniques to analyze user input and generate contextually relevant prompts. The agent is built using Python and includes mechanisms for adaptive prompting, self-updating, multi-textual prompt engineering, multilingual support, math-solving capabilities, and auto data collection.
+The prompt agent is part of VishwamAI and aims to provide a comprehensive solution for generating and managing prompts. It includes advanced features such as adaptive prompting, multi-textual prompt engineering, multilingual support, advanced math and coding problem-solving (akin to Jarvis), auto data collection without relying on APIs, and a self-update mechanism with self-learning capabilities for grammatical improvements and multilingual support.
 
-## Project Structure
+## System Overview
+
+### Project Structure
 
 ```
 VishwamAI/
@@ -23,7 +27,7 @@ VishwamAI/
 └── README.md           # Project overview and instructions
 ```
 
-## Installation
+### Installation
 
 1. Clone the repository:
    ```bash
@@ -74,7 +78,34 @@ To run the problem-solving agent, execute the following command:
 python3 scripts/problem_solving_agent.py
 ```
 
-The agent will prompt you to enter a math or coding problem. Type your problem and press Enter. To exit the agent, type `exit`.
+The agent will prompt you to enter a math or coding problem. Type your problem and press Enter. The agent can solve algebra, calculus, and statistics problems using `sympy`. To exit the agent, type `exit`.
+
+### Auto Data Collection
+
+To run the data collection agent, execute the following command:
+```bash
+python3 scripts/data_collection_agent.py
+```
+
+The agent will collect data from configured web sources and log its activity.
+
+## Usage
+
+To run the prompt agent, execute the following command:
+```bash
+python3 scripts/prompt_agent.py
+```
+
+The agent will prompt you to enter your input. Type your prompt and press Enter. To exit the agent, type `exit`.
+
+### Math and Coding Problem Solving
+
+To run the problem-solving agent, execute the following command:
+```bash
+python3 scripts/problem_solving_agent.py
+```
+
+The agent will prompt you to enter a math or coding problem. Type your problem and press Enter. The agent can solve algebra, calculus, and statistics problems using `sympy`. To exit the agent, type `exit`.
 
 ### Auto Data Collection
 
@@ -103,7 +134,7 @@ The multilingual support is implemented in the `adaptive_prompting.py` script. T
 
 ### Math and Coding Problem Solving
 
-The math and coding problem-solving capabilities are implemented in the `problem_solving_agent.py` script. The `ProblemSolvingAgent` class includes methods for solving math problems using `sympy` and a placeholder for coding problems.
+The math and coding problem-solving capabilities are implemented in the `problem_solving_agent.py` script. The `ProblemSolvingAgent` class includes methods for solving math problems using `sympy`, including algebra, calculus, and statistics problems. The coding problem-solving functionality is currently under development.
 
 ### Auto Data Collection
 
@@ -113,9 +144,40 @@ The auto data collection capabilities are implemented in the `data_collection_ag
 
 The self-update mechanism is implemented in the `update_model` method of the `AdaptivePromptAgent` class. It uses system calls to perform `git pull` and `pip install -r requirements.txt` commands to update the code and dependencies.
 
+## Results
+
+### Running Tests Locally
+
+To run the tests locally and replicate the CI/CD environment, use the `run_tests.sh` script. This script sets up a virtual environment, installs the required dependencies, and runs the tests using `pytest`.
+
+1. Ensure the `run_tests.sh` script has executable permissions:
+   ```bash
+   chmod +x run_tests.sh
+   ```
+
+2. Execute the `run_tests.sh` script:
+   ```bash
+   ./run_tests.sh
+   ```
+
+The script will set up the environment, install dependencies, and run the tests. If any test fails, the script will exit immediately with an error message.
+
 ### CI/CD Workflow
 
 The CI/CD workflow is defined in the `.github/workflows/ci_cd.yml` file. It includes steps for setting up Python, installing dependencies, running tests, and deploying the application.
+
+## Conclusion
+
+The prompt agent provides a robust solution for generating and managing prompts, with advanced features such as adaptive prompting, multi-textual prompt engineering, multilingual support, advanced math and coding problem-solving (akin to Jarvis), auto data collection without relying on APIs, and a self-update mechanism with self-learning capabilities. It is designed to be easily extensible and adaptable to various use cases.
+
+## References
+
+- [NumPy](https://numpy.org/)
+- [NLTK](https://www.nltk.org/)
+- [SpaCy](https://spacy.io/)
+- [language_tool_python](https://github.com/jxmorris12/language_tool_python)
+- [SymPy](https://www.sympy.org/)
+- [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
 ## Contributing
 
