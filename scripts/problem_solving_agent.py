@@ -1,4 +1,5 @@
 import sympy as sp
+import sympy.stats as stats
 import re
 import time
 
@@ -33,7 +34,7 @@ class ProblemSolvingAgent:
     def solve_statistics_problem(self, problem):
         try:
             # Use sympy to solve statistics problems
-            solution = sp.stats.density(sp.sympify(problem))
+            solution = stats.density(sp.sympify(problem))
             return f"The solution to the statistics problem '{problem}' is: {solution}"
         except Exception as e:
             return f"Error solving statistics problem: {str(e)}"
