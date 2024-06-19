@@ -1,5 +1,5 @@
 # prompt-agent
-
+[![CI/CD Workflow](https://github.com/VishwamAI/prompt-agent/actions/workflows/ci_cd.yml/badge.svg)](https://github.com/VishwamAI/prompt-agent/actions/workflows/ci_cd.yml)
 ## Abstract
 
 The prompt agent is designed to auto-generate prompts and self-update. It leverages advanced NLP techniques to analyze user input and generate contextually relevant prompts. The agent is built using Python and includes mechanisms for adaptive prompting, self-updating, multi-textual prompt engineering, multilingual support, math-solving capabilities (including algebra, calculus, and statistics), and auto data collection.
